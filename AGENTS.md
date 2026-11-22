@@ -19,8 +19,8 @@ dsh-github-connector：为 [DeepSeek Harness (dsh)](https://github.com/deepseek-
 
 1. **文档规范以 [docs/README.md](docs/README.md) 为准**，本文件只做摘要，两者冲突时以 docs/README.md 为准并修复本文件。
 2. **决策先行**：推翻既有设计决策（认证方式、包结构、seam 语义等）必须先新增 ADR（流程见 [docs/adr/README.md](docs/adr/README.md)），再改 design / plans / 代码。ADR 合并后不可修改，只能被新 ADR 取代。
-3. **按里程碑开工**：实现工作严格跟随 execution-plan 的 M1→M7 顺序与 DoD；完成任务时同步勾选对应 checkbox 并更新文件头部状态行。
-4. **范围纪律**：design §10 列出的"仍未纳入"内容（merge queue、文件内容读取、reactions、GraphQL、token 自动刷新）不做，除非先出 ADR 变更范围。PR review 已由 [ADR-0012](docs/adr/0012-pr-review-loop-enters-scope.md) 移入范围（v2 / M8–M10）。
+3. **按当前有效里程碑开工**：以 [execution-plan](docs/plans/execution-plan.md) 最新经核验的状态与 ADR 范围为准：v1 M1–M7 已完成；v2 M8–M10 已完成实现，但相关真实宿主环境手工验收仍有挂起项；v3 M11/M12 已拆解未开工。新工作须得到对应授权并按真实依赖和 DoD 推进，不能再将“只能执行 M1→M7”当成永久阻断，也不得以文档写完成冒充手工验收通过。
+4. **范围纪律**：以最新已接受 ADR 为范围权威，当前排除 merge queue、文件内容读取、reactions、GraphQL 和 token 自动刷新，新增范围须先更新 ADR；PR review 已由 [ADR-0012](docs/adr/0012-pr-review-loop-enters-scope.md) 纳入 v2，v3 配置与 session 同步的已接受设计见 ADR-0016/0017，不因此自动授权开工。
 5. **语言**：`docs/` 内中文；根 `README.md` 中文为主，英文版在 `README.en.md`；提交信息英文。
 
 ## 工程门槛（代码落地时生效，源自 design §8）
